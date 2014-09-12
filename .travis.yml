@@ -1,0 +1,9 @@
+language: ruby
+rvm:
+  - 2.1.2
+env:
+  - DB=sqlite
+script:
+  - RAILS_ENV=test bundle exec rake --trace db:migrate
+before_script:
+  - cp config/database.example.yml config/database.yml

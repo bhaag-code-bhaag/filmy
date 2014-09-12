@@ -11,6 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 
 
 group :test do
+  gem 'sqlite3'
   gem 'cucumber-rails'
   gem 'database_cleaner'
 end
