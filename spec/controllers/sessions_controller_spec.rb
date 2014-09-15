@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe SessionsController do
 
@@ -10,6 +10,11 @@ describe SessionsController do
   end
 
   describe "GET create" do
+    it "calls from_omniauth on User model" do
+      expect(User).to receive(:from_omniauth)
+      get :create, provider: 'facebook'
+    end
+
     it "redirects to root page" do
       get :create, provider: 'facebook'
       expect(response).to redirect_to(root_path)

@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    auth_info = env["omniauth.auth"]
+    User.from_omniauth(env['omniauth.auth'])
     redirect_to root_path, :notice => 'Successfully Logged in'
   end
 
