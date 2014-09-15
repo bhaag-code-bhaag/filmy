@@ -50,8 +50,8 @@ describe User do
         provider = 'facebook'
         uid      = 'some random uid'
 
-        User.create(provider: provider, uid: uid)
-        auth_info = {
+        User.create(provider: provider, uid: uid, name: 'somename', email: 'some@test.com')
+        auth_info = OmniAuth::AuthHash.new({
           provider: provider,
           uid: uid,
           info: {
@@ -59,7 +59,7 @@ describe User do
             name: 'pheku raja',
             verified: true
           }
-        }
+        })
 
         expect do
           User.from_omniauth(auth_info)

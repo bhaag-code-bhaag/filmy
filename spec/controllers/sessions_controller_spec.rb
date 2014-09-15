@@ -16,6 +16,13 @@ describe SessionsController do
     end
 
     it "redirects to root page" do
+      x = OmniAuth::AuthHash.new({
+                                   "provider"=>"facebook",
+                                   "uid"=>"118181138998978630963",
+                                   "info"=>{"email"=>"test@xxxx.com", "first_name"=>"Test", "last_name"=>"User", "name"=>"Test User"}
+      })
+
+      allow(controller).to receive(:env).and_return('omniauth.auth' => x)
       get :create, provider: 'facebook'
       expect(response).to redirect_to(root_path)
     end
