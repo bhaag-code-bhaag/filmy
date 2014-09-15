@@ -8,3 +8,4 @@ script:
 before_script:
   - mysql -e 'create database filmy_test;'
   - cp config/database.example.yml config/database.yml
+  - cp config/secrets.travis.yml config/secrets.yml
