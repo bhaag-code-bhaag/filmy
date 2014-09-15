@@ -6,6 +6,7 @@ Feature: Registration
     Background:
       Given I am not logged in
 
+    @omniauth_test
     Scenario: User signs up with valid info
       When I sign up with valid user information
       Then I should see a successful registration message

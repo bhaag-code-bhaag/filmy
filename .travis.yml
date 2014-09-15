@@ -4,6 +4,6 @@ rvm:
 env:
   - DB=sqlite
 script:
-  - RAILS_ENV=test bundle exec rake --trace db:migrate
+  - bundle exec rake travis --trace
 before_script:
   - cp config/database.example.yml config/database.yml
