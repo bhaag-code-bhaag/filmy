@@ -16,12 +16,12 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     unless find_by_provider_and_uid(auth[:provider], auth[:uid])
-      User.create({
+      User.create(
         name: auth.info.name,
         email: auth.info.email,
         uid: auth.uid,
         provider: auth.provider
-        })
+      )
     end
   end
 end

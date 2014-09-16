@@ -15,7 +15,7 @@ require 'rails_helper'
 
 describe User do
 
-  describe "Validations" do
+  describe 'Validations' do
     it 'should validate presence of :email' do
       expect(subject).to validate_presence_of :email
     end
@@ -26,10 +26,10 @@ describe User do
     it { expect(subject).to validate_presence_of :uid }
   end
 
-  describe ".from_omniauth" do
-    context "New auth info" do
-      it "loads user data from omni auth" do
-        auth_info = OmniAuth::AuthHash.new({
+  describe '.from_omniauth' do
+    context 'New auth info' do
+      it 'loads user data from omni auth' do
+        auth_info = OmniAuth::AuthHash.new(
           provider: 'facebook',
           uid: 'some random uid',
           info: {
@@ -37,7 +37,7 @@ describe User do
             name: 'pheku raja',
             verified: true
           }
-        })
+        )
 
         expect do
           User.from_omniauth(auth_info)
@@ -45,13 +45,13 @@ describe User do
       end
     end
 
-    context "User already present with given auth info" do
-      it "does not load the user data" do
+    context 'User already present with given auth info' do
+      it 'does not load the user data' do
         provider = 'facebook'
         uid      = 'some random uid'
 
         User.create(provider: provider, uid: uid, name: 'somename', email: 'some@test.com')
-        auth_info = OmniAuth::AuthHash.new({
+        auth_info = OmniAuth::AuthHash.new(
           provider: provider,
           uid: uid,
           info: {
@@ -59,7 +59,7 @@ describe User do
             name: 'pheku raja',
             verified: true
           }
-        })
+        )
 
         expect do
           User.from_omniauth(auth_info)

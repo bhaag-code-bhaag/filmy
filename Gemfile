@@ -23,6 +23,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rubocop'
   gem 'annotate'
   gem 'awesome_print'
   gem 'better_errors'
