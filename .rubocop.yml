@@ -1,0 +1,14 @@
+AllCops:
+  Include:
+    - Rakefile
+    - config.ru
+  Exclude:
+    - db/**/*
+    - config/**/*
+    - script/**/*
+Documentation:
+  Enabled: false
+LineLength:
+  Description: 'Limit lines to 130 characters.'
+  Max: 130
+  Enabled: true
