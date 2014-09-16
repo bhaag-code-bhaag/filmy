@@ -1,5 +1,5 @@
 Given(/^I am not logged in$/) do
-   visit users_logout_path
+  visit users_logout_path
 end
 
 When(/^I sign up with valid user information$/) do
