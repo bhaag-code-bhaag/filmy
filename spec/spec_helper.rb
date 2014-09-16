@@ -1,10 +1,10 @@
-ENV['RAILS_ENV'] ||= 'test'
-require 'coveralls'
+ENV["RAILS_ENV"] ||= "test"
+require "coveralls"
 Coveralls.wear!
 
-require File.expand_path('../../config/environment', __FILE__)
-require 'rspec/rails'
-require 'shoulda/matchers'
+require File.expand_path("../../config/environment", __FILE__)
+require "rspec/rails"
+require "shoulda/matchers"
 
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!

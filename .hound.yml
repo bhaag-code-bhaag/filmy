@@ -9,7 +9,7 @@ Style/LineLength:
   Max: 130
 
 Style/StringLiterals:
-  EnforcedStyle: single_quotes
+  EnforcedStyle: double_quotes
 
 Style/RedundantBegin:
   Enabled: false
