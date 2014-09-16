@@ -1,7 +1,7 @@
 Before('@omniauth_test') do
   OmniAuth.config.test_mode = true
 
-  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(
+  OmniAuth.config.mock_auth[:facebook] = Hashie::Mash.new(
     provider: 'facebook',
     uid: '118181138998978630963',
     info:

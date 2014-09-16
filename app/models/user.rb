@@ -15,13 +15,12 @@ class User < ActiveRecord::Base
   validates :name, :email, :provider, :uid, presence: true
 
   def self.from_omniauth(auth)
-    unless find_by_provider_and_uid(auth[:provider], auth[:uid])
-      User.create(
-        name: auth.info.name,
-        email: auth.info.email,
-        uid: auth.uid,
-        provider: auth.provider
-      )
+    where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
+      user.name     = auth.info.name
+      user.email    = auth.info.email
+      user.uid      = auth.uid
+      user.provider = auth.provider
+      user.save
     end
   end
 end
