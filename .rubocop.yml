@@ -3,6 +3,8 @@ AllCops:
     - Rakefile
     - config.ru
   Exclude:
+    - app/controllers/application_controller.rb
+    - app/controllers/sessions_controller.rb
     - db/**/*
     - config/**/*
     - script/**/*
