@@ -6,6 +6,10 @@ When(/^I sign up with valid user information$/) do
   visit "/auth/facebook"
 end
 
-Then(/^I should see a successful registration message$/) do
-  expect(page).to have_content("Successfully Logged in")
+Then(/^I should see "(.*?)" message$/) do |msg|
+  expect(page).to have_content msg
+end
+
+Given(/^I am logged in$/) do
+  visit "/auth/facebook"
 end

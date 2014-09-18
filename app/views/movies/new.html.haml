@@ -1,0 +1,8 @@
+%h2
+  Enter Movies details
+
+= simple_form_for @movie do |f|
+  = f.input :name
+  = f.input :description
+  = f.input :tag_line
+  = f.submit 'Save'

@@ -9,4 +9,4 @@ Feature: Registration
     @omniauth_test
     Scenario: User signs up with valid info
       When I sign up with valid user information
-      Then I should see a successful registration message
+      Then I should see "Successfully Logged in" message
