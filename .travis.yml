@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - 2.1.2
+env:
+  - DB=mysql
+script:
+  - bundle exec rake travis --trace
+before_script:
+  - mysql -e 'create database filmy_test;'
+  - cp config/database.example.yml config/database.yml
+  - cp config/secrets.travis.yml config/secrets.yml
