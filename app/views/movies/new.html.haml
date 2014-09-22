@@ -1,8 +1,31 @@
-%h2
-  Enter Movies details
+.page-header
+  = link_to movies_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  %h1 New article
 
-= simple_form_for @movie do |f|
-  = f.input :name
-  = f.input :description
-  = f.input :tag_line
-  = f.submit 'Save'
+= form_for @movie, html: { class: "form-horizontal" } do |f|
+  -if @movie.errors.any?
+    .alert.alert-danger.alert-dismissable
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} &times;
+      %h4= "#{pluralize(@movie.errors.count, "error")} prohibited this movie from being saved:"
+
+      %ul
+        - @movie.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :name, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :description, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_area :description, class: 'form-control'
+  .form-group
+    = f.label :tag_line, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :tag_line, class: 'form-control'
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit 'Save', class: 'btn btn-primary'

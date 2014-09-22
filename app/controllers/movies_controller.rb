@@ -8,11 +8,12 @@ class MoviesController < ApplicationController
     if @movie.save
       redirect_to root_path, notice: "Successfully created movie"
     else
-      render 'new'
+      render "new"
     end
   end
 
   private
+
     def movie_params
       params.require(:movie).permit(:name, :description, :tag_line)
     end

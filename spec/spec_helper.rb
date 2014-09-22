@@ -2,6 +2,10 @@ ENV["RAILS_ENV"] ||= "test"
 require "coveralls"
 Coveralls.wear!
 
+# Uncomment below code to see coverage in local
+# require 'simplecov'
+# SimpleCov.start 'rails'
+
 require File.expand_path("../../config/environment", __FILE__)
 require "rspec/rails"
 require "shoulda/matchers"

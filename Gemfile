@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'autoprefixer-rails'
+gem 'bootstrap-sass'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'haml-rails'
 gem 'jquery-rails'

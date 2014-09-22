@@ -11,8 +11,8 @@ describe MoviesController do
 
   let(:invalid_attributes) do
     {
-      name: '',
-      description: 'some thing'
+      name: "",
+      description: "some thing"
     }
   end
 
@@ -38,35 +38,34 @@ describe MoviesController do
     end
   end
 
-
   describe "POST create" do
     describe "with valid params" do
       it "creates a new Movie" do
-        expect {
-          post :create, { movie: valid_attributes }
-        }.to change(Movie, :count).by(1)
+        expect do
+          post :create, movie: valid_attributes
+        end.to change(Movie, :count).by(1)
       end
 
       it "assigns a newly created movie as @movie" do
-        post :create, { movie: valid_attributes }
+        post :create, movie: valid_attributes
         expect(assigns(:movie)).to be_a(Movie)
         expect(assigns(:movie)).to be_persisted
       end
 
       it "redirects to root path" do
-        post :create, {:movie => valid_attributes}
+        post :create, movie: valid_attributes
         expect(response).to redirect_to(root_path)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved movie as @movie" do
-        post :create, {:movie => invalid_attributes}
+        post :create, movie: invalid_attributes
         expect(assigns(:movie)).to be_a_new(Movie)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:movie => invalid_attributes}
+        post :create, movie: invalid_attributes
         expect(response).to render_template("new")
       end
     end
