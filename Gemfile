@@ -2,12 +2,14 @@ source 'https://rubygems.org'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
+gem 'carrierwave'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'mysql2'
 gem 'omniauth-facebook'
 gem 'rails', '4.1.5'
+gem 'rmagick'
 gem 'sass-rails', '~> 4.0.3'
 gem 'simple_form'
 gem 'uglifier', '>= 1.3.0'
@@ -27,11 +29,12 @@ group :development, :test do
 end
 
 group :development do
-  gem 'rubocop'
   gem 'annotate'
   gem 'awesome_print'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'capistrano'
   gem 'quiet_assets'
+  gem 'rubocop'
   gem 'spring'
 end

@@ -1,4 +1,8 @@
 class MoviesController < ApplicationController
+  def show
+    @movie = Movie.find params[:id]
+  end
+
   def new
     @movie = Movie.new
   end
@@ -6,7 +10,7 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new movie_params
     if @movie.save
-      redirect_to root_path, notice: "Successfully created movie"
+      redirect_to movie_path(@movie), notice: "Successfully created movie"
     else
       render "new"
     end
@@ -15,6 +19,6 @@ class MoviesController < ApplicationController
   private
 
     def movie_params
-      params.require(:movie).permit(:name, :description, :tag_line)
+      params.require(:movie).permit(:name, :description, :tag_line, :poster)
     end
 end

@@ -8,8 +8,11 @@
 #  tag_line    :text
 #  created_at  :datetime
 #  updated_at  :datetime
+#  poster      :string(255)
 #
 
 class Movie < ActiveRecord::Base
   validates :name, presence: true
+
+  mount_uploader :poster, PosterUploader
 end
