@@ -35,8 +35,5 @@
             %li
               = link_to :movies, new_movie_path
     .container
-      - flash.each do |name, msg|
-        = content_tag :div, :class => "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable" do
-          %button.close{:type => "button", :data => {:dismiss => "alert"}, :aria => {:hidden => "true"} } &times;
-          = msg
+      = bootstrap_flash
       = yield
