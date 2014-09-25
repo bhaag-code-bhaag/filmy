@@ -21,6 +21,18 @@ describe SessionsController do
       get :create, provider: "facebook"
       expect(response).to redirect_to(root_path)
     end
+
+    it "should safelist the params" do
+      allow(controller).to receive(:env).and_return(
+        "omniauth.auth" => {
+          uid: "some uid",
+          invalid_key: "this should be excluded"
+        }
+      )
+
+      expect(User).to receive(:from_omniauth).with(uid: "some uid") { double(User, id: 1) }
+      get :create, provider: "facebook"
+    end
   end
 
   describe "GET index" do

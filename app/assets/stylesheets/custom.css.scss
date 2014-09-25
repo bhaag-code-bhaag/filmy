@@ -1,0 +1,30 @@
+body {
+  padding-top: $navbar-height + 10px;
+}
+
+.page-header {
+  a.btn {
+    float: right;
+  }
+
+  a.btn + a.btn {
+    margin-right: 8px;
+  }
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius   : $radius;
+  border-radius        : $radius;
+}
+
+
+.movie{
+  @include border-radius(12px);
+  border : 1px solid #ddd;
+  border-left: 0px;
+}
+
+.movie .poster {
+  margin-left: -18px;
+}

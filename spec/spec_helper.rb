@@ -2,6 +2,10 @@ ENV["RAILS_ENV"] ||= "test"
 require "coveralls"
 Coveralls.wear!
 
+# Uncomment below code to see coverage in local
+# require 'simplecov'
+# SimpleCov.start 'rails'
+
 require File.expand_path("../../config/environment", __FILE__)
 require "rspec/rails"
 require "shoulda/matchers"
@@ -15,5 +19,12 @@ RSpec.configure do |config|
 
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
+  end
+end
+
+if Rails.env.test? or Rails.env.cucumber?
+  CarrierWave.configure do |config|
+    config.storage = :file
+    config.enable_processing = false
   end
 end

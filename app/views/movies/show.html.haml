@@ -1,0 +1,27 @@
+- if false
+  .page-header
+    = link_to root_path, :class => 'btn btn-default' do
+      %span.glyphicon.glyphicon-list-alt
+      Back
+    = link_to '#', :class => 'btn btn-primary' do
+      %span.glyphicon.glyphicon-pencil
+      Edit
+
+.row
+  .movie.col-md-8
+    .row
+      .poster.col-md-4.text-center
+        = image_tag @movie.poster.url(:thumb)
+      .col-md-8
+        .name.row
+          %h2 #{ @movie.name } ( 2014 )
+        .genres.row
+          = %w(crime history).map(&:titleize).join(" | ")
+        .description.row
+          = @movie.description
+        %p
+          .director.row{ style: "color: #666" }
+            Director: Wes Ball
+          .Writers.row{ style: "color: #666" }
+            Writers: Noah Oppenheim(screenplay), Grant Pierce Myers(screenplay) >>
+
