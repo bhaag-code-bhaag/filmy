@@ -52,9 +52,9 @@ describe MoviesController do
         expect(assigns(:movie)).to be_persisted
       end
 
-      it "redirects to root path" do
+      it "redirects to movie page" do
         post :create, movie: valid_attributes
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(movie_path assigns(:movie))
       end
     end
 
