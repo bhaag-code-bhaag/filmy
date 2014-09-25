@@ -32,6 +32,8 @@
               %a{:href => "#about"} About
             %li
               %a{:href => "#contact"} Contact
+            %li
+              = link_to :movies, new_movie_path
     .container
       - flash.each do |name, msg|
         = content_tag :div, :class => "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable" do
